@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import Input from "../../components/Inputs/Input";
-import { UserContext } from "../../context/userContext";
+import { UserContext } from "../../context/UserContext";
 import toast from "react-hot-toast";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
