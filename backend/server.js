@@ -16,7 +16,7 @@ const app = express();
 // Middleware to handle CORS
 app.use(
     cors({
-        origin: "https://expensetracker-frontend-zod5.onrender.com",
+        origin: process.env.UI_URL,
         credentials: true,
     })
 );
