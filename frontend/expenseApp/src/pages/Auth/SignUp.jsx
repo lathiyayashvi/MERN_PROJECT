@@ -26,7 +26,7 @@ const SignUp = () => {
   const handleGoogleSignUp = () => {
     try {
       setIsLoading(true);
-      const googleLoginURL = "http://localhost:8000/api/v1/auth/google";
+      const googleLoginURL = "https://expensetracker-12ws.onrender.com/api/v1/auth/google";
       window.location.href = googleLoginURL;
     } catch (error) {
       console.error("Error signup with google", error);

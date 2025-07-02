@@ -20,7 +20,7 @@ const SideMenu = ({ activeMenu }) => {
 
   const handleLogout = async () => {
     try {
-      await fetch("http://localhost:8000/api/v1/auth/logout", {
+      await fetch("https://expensetracker-12ws.onrender.com/api/v1/auth/logout", {
         credentials: "include",
       });
 
