@@ -16,7 +16,7 @@ const app = express();
 // Middleware to handle CORS
 app.use(
     cors({
-        origin: "http://localhost:5173",
+        origin: "https://expensetracker-frontend-zod5.onrender.com",
         credentials: true,
     })
 );
