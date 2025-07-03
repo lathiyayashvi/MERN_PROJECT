@@ -23,6 +23,7 @@ const Login = () => {
     try {
       setIsLoading(true);
       const googleLoginURL = API_PATHS.AUTH.GOOGLE_LOGIN;
+      console.log(googleLoginURL);
       window.location.href = googleLoginURL;
     } catch (error) {
       console.error("Error login with google", error);
