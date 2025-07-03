@@ -11,7 +11,7 @@ export const API_PATHS = {
         VERIFY_ACCOUNT: `/api/v1/auth/verify-account`,
         SEND_RESET_PASSWORD: `/api/v1/auth/reset-pass`,
         EDIT_PROFILE: `/api/v1/auth/edit-profile`,
-        GOOGLE_LOGIN: `/api/v1/auth/google`
+        GOOGLE_LOGIN: "/api/v1/auth/google"
     },
     DASHBOARD: {
         GET_DATA: `/api/v1/dashboard`,

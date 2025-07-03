@@ -22,7 +22,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     try {
       setIsLoading(true);
-      const googleLoginURL = API_PATHS.AUTH.GOOGLE_LOGIN;
+      const googleLoginURL = "https://expensetracker-12ws.onrender.com/api/v1/auth/google";
       console.log(googleLoginURL);
       window.location.href = googleLoginURL;
     } catch (error) {
