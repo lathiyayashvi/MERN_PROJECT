@@ -75,12 +75,11 @@ const SignUp = () => {
       const { user, token } = response.data;
 
       updateUser(user);
-      
+
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
 
       navigate("/email-verify");
-
     } catch (error) {
       console.error("SIGNUP ERROR:", error);
       if (error.response && error.response.data.message) {
@@ -136,21 +135,6 @@ const SignUp = () => {
             SIGN UP
           </button>
 
-          <div className="my-3 text-center">
-            <p className="text-sm text-slate-700 mb-2">or</p>
-            <button
-              onClick={handleGoogleSignUp}
-              disabled={isLoading}
-              type="button"
-              className="flex items-center justify-center gap-2 border border-gray-300 rounded-md py-2 px-4 hover:bg-gray-100 transition w-full"
-            >
-              <span className="flex items-center justify-center rounded-full h-6 w-6 border-2 border-t-blue-500 border-r-red-500 border-b-yellow-500 border-l-green-500">
-                <FaGoogle className="text-gray-700 text-sm" />
-              </span>
-              <span className="text-sm font-medium">SignUp with Google</span>
-            </button>
-          </div>
-
           <p className="text-[13px] text-slate-800 mt-3">
             Already have an account?{" "}
             <Link className="font-medium text-primary underline" to="/login">
@@ -158,6 +142,21 @@ const SignUp = () => {
             </Link>
           </p>
         </form>
+
+        <div className="my-3 text-center">
+          <p className="text-sm text-slate-700 mb-2">or</p>
+          <button
+            onClick={handleGoogleSignUp}
+            disabled={isLoading}
+            type="button"
+            className="flex items-center justify-center gap-2 border border-gray-300 rounded-md py-2 px-4 hover:bg-gray-100 transition w-full"
+          >
+            <span className="flex items-center justify-center rounded-full h-6 w-6 border-2 border-t-blue-500 border-r-red-500 border-b-yellow-500 border-l-green-500">
+              <FaGoogle className="text-gray-700 text-sm" />
+            </span>
+            <span className="text-sm font-medium">SignUp with Google</span>
+          </button>
+        </div>
       </div>
     </AuthLayout>
   );
