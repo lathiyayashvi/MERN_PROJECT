@@ -53,12 +53,14 @@ const Login = () => {
         password,
       });
 
-      const { user } = response.data;
+      const { user, token } = response.data;
 
       updateUser(user);
 
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+      // ✅ Save token and user
+      localStorage.setItem("token", token);
+      console.log("Token saved:", token);
+      localStorage.setItem("user", JSON.stringify(user));
 
       // console.log("user logged in: ",user);
       // console.log("login response: ", response.data);

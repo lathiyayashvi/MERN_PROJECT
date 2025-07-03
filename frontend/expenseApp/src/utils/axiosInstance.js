@@ -1,8 +1,8 @@
 import axios from "axios";
-import {BASE_URL} from "./apiPaths";
+
 
 const axiosInstance = axios.create({
-    baseURL: BASE_URL,
+    baseURL: import.meta.env.VITE_BACKEND_URL,
     timeout: 10000,
     withCredentials: true,
 });

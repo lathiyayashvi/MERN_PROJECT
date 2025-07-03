@@ -29,7 +29,12 @@ const Home = () => {
     setLoading(true);
 
     try {
-      const response = await axiosInstance.get(API_PATHS.DASHBOARD.GET_DATA);
+      const token = localStorage.getItem("token");
+      const response = await axiosInstance.get(API_PATHS.DASHBOARD.GET_DATA, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      });
 
       if (response.data) {
         setDashboardData(response.data);
