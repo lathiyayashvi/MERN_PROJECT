@@ -59,7 +59,6 @@ const Login = () => {
 
       // ✅ Save token and user
       localStorage.setItem("token", token);
-      console.log("Token saved:", token);
       localStorage.setItem("user", JSON.stringify(user));
 
       // console.log("user logged in: ",user);

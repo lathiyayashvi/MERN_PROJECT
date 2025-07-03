@@ -72,10 +72,13 @@ const SignUp = () => {
         profileImageUrl,
       });
 
-      const { user } = response.data;
+      const { user, token } = response.data;
 
       updateUser(user);
       
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
+
       navigate("/email-verify");
 
     } catch (error) {
