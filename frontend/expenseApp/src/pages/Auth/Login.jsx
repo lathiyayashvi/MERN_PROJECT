@@ -20,6 +20,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleGoogleLogin = () => {
+    console.log("Google login clicked");
     try {
       setIsLoading(true);
       window.location.href = "https://expensetracker-12ws.onrender.com/api/v1/auth/google";
