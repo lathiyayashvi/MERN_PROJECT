@@ -13,6 +13,7 @@ const generateToken = (res, id) => {
         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
         maxAge: 60 * 60 * 1000,
     });
+    return token;
 };
 
 // Register User
