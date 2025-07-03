@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import AuthLayout from "../../components/layouts/AuthLayout";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Input from "../../components/Inputs/Input";
 import { validateEmail } from "../../utils/helper";
 import axiosInstance from "../../utils/axiosInstance";
@@ -16,14 +15,14 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { updateUser } = useContext(UserContext);
-
   const navigate = useNavigate();
 
   const handleGoogleLogin = () => {
     console.log("Google login clicked");
     try {
       setIsLoading(true);
-      window.location.href = "https://expensetracker-12ws.onrender.com/api/v1/auth/google";
+      window.location.href =
+        "https://expensetracker-12ws.onrender.com/api/v1/auth/google";
     } catch (error) {
       console.error("Error login with google", error);
     } finally {
@@ -31,7 +30,6 @@ const Login = () => {
     }
   };
 
-  // Handle Login Form Submit
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -56,13 +54,8 @@ const Login = () => {
       const { user, token } = response.data;
 
       updateUser(user);
-
-      // ✅ Save token and user
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
-
-      // console.log("user logged in: ",user);
-      // console.log("login response: ", response.data);
 
       if (user.isAccountVerified) {
         navigate("/dashboard");
@@ -118,21 +111,6 @@ const Login = () => {
             LOGIN
           </button>
 
-          <div className="my-3 text-center">
-            <p className="text-sm text-slate-700 mb-2">or</p>
-            <button
-              onClick={handleGoogleLogin}
-              disabled={isLoading}
-              type="button"
-              className="flex items-center justify-center gap-2 border border-gray-300 rounded-md py-2 px-4 hover:bg-gray-100 transition w-full"
-            >
-              <span className="flex items-center justify-center rounded-full h-6 w-6 border-2 border-t-blue-500 border-r-red-500 border-b-yellow-500 border-l-green-500">
-                <FaGoogle className="text-gray-700 text-sm" />
-              </span>
-              <span className="text-sm font-medium">Login with Google</span>
-            </button>
-          </div>
-
           <p className="text-[13px] text-slate-800 mt-3">
             Don't have an account?{" "}
             <Link className="font-medium text-primary underline" to="/signUp">
@@ -140,6 +118,22 @@ const Login = () => {
             </Link>
           </p>
         </form>
+
+        {/* ✅ Google login button is placed outside the form */}
+        <div className="my-3 text-center">
+          <p className="text-sm text-slate-700 mb-2">or</p>
+          <button
+            onClick={handleGoogleLogin}
+            disabled={isLoading}
+            type="button"
+            className="flex items-center justify-center gap-2 border border-gray-300 rounded-md py-2 px-4 hover:bg-gray-100 transition w-full"
+          >
+            <span className="flex items-center justify-center rounded-full h-6 w-6 border-2 border-t-blue-500 border-r-red-500 border-b-yellow-500 border-l-green-500">
+              <FaGoogle className="text-gray-700 text-sm" />
+            </span>
+            <span className="text-sm font-medium">Login with Google</span>
+          </button>
+        </div>
       </div>
     </AuthLayout>
   );
