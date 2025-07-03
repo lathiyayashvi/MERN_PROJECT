@@ -26,14 +26,15 @@ const SignUp = () => {
   const handleGoogleSignUp = () => {
     try {
       setIsLoading(true);
-      const googleLoginURL = "https://expensetracker-12ws.onrender.com/api/v1/auth/google";
+      const googleLoginURL =
+        "https://expensetracker-12ws.onrender.com/api/v1/auth/google";
       window.location.href = googleLoginURL;
     } catch (error) {
       console.error("Error signup with google", error);
-    }finally{
+    } finally {
       setIsLoading(false);
     }
-  }
+  };
 
   // Handle Sign Up form Submit
   const handleSignUp = async (e) => {
@@ -58,9 +59,7 @@ const SignUp = () => {
 
     setError("");
 
-    // signup api call
     try {
-      // Upload image if present
       if (profilePic) {
         const imageUploadRes = await uploadImage(profilePic);
         profileImageUrl = imageUploadRes.imageUrl || "";
@@ -76,11 +75,9 @@ const SignUp = () => {
       const { user } = response.data;
 
       updateUser(user);
-      if (user.isAccountVerified) {
-        navigate("/dashboard");
-      } else {
-        navigate("/email-verify");
-      }
+      
+      navigate("/email-verify");
+
     } catch (error) {
       console.error("SIGNUP ERROR:", error);
       if (error.response && error.response.data.message) {
