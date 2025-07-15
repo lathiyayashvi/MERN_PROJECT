@@ -52,6 +52,7 @@ const Login = () => {
       });
 
       const { user, token } = response.data;
+      console.log("User: ", user);
 
       updateUser(user);
       localStorage.setItem("token", token);
