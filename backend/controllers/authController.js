@@ -324,7 +324,8 @@ const editProfile = async (req, res) => {
     console.log(req.file);
     // Update profile image if uploaded
     if (req.file) {
-      const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+        const baseURL = process.env.BACKEND_URL || `https://${req.get("host")}`;
+      const imageUrl = `${baseURL}/uploads/${req.file.filename}`;
       console.log(imageUrl);
       user.profileImageUrl = imageUrl;
     }
