@@ -37,6 +37,9 @@ const EditProfile = () => {
     if (profilePic && typeof profilePic !== "string") {
       formData.append("image", profilePic);
     }
+    else if(typeof profilePic === "string"){
+      formData.append("profileImageUrl", profilePic);
+    }
 
     try {
       const res = await axiosInstance.put(API_PATHS.AUTH.EDIT_PROFILE, formData);
